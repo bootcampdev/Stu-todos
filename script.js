@@ -23,10 +23,11 @@ function addTodos(e) {
 
     if (!todoInput.value)
         return;
-        
+
     todos.push(todoInput.value);
+    todoInput.value = '';
+    
     renderTodos()
-    console.log(todos);
 }
 
 todoForm.addEventListener("submit", addTodos)
