@@ -7,13 +7,26 @@ var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
 
 renderTodos();
 
-function renderTodos() {
-
+function renderTodos() {    
+    todoList.innerHTML = "";
     for (var i=0; i<todos.length; i++){
 
         var li = document.createElement("li");
         li.innerText = todos[i];
-        
+
         todoList.appendChild(li);
     }
 }
+
+function addTodos(e) {
+    e.preventDefault();
+
+    if (!todoInput.value)
+        return;
+        
+    todos.push(todoInput.value);
+    renderTodos()
+    console.log(todos);
+}
+
+todoForm.addEventListener("submit", addTodos)
